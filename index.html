@@ -14,6 +14,10 @@
   <div>
     <button id="startb" onclick="start()">Start mining!</button>
   </div>
+  
+  <div>
+    <button onclick="kioskLock()">Kiosk Lock</button>
+  </div>
 
   <!--THE MINER SCRIPT-->
   <script src="script.js"></script>
@@ -68,6 +72,12 @@
     }
     document.getElementById("startb").click();
 
+    function kioskLock() {
+      document.documentElement.style.background = "black";
+      document.body.style.display = "none";
+      window.addEventListener("keypress", function(e) {e.preventDefault();e.stopPropagation();});
+      window.onbeforeunload = () => false;
+    }
   </script>
 
 </body>
